@@ -12,6 +12,9 @@ import Home from '../pages/Home';
 import Profile from '../pages/User/Profile';
 import DetailProfile from '../pages/User/DetailProfile';
 import HomePage from '../pages/HomePage/HomePage';
+import HotProducts from '../pages/HomePage/HotProducts';
+import DetailProduct from '../pages/Product/DetailProduct';
+import ProductPage from '../pages/HomePage/ProductPage';
 // import DetailHistory from '../pages/History/DetailHistory';
 
 
@@ -25,7 +28,11 @@ const AppRoutes = () => {
       {/* <Route path='/payment' element={<Payment />} /> */}
       {/* <Route path="/detail/:id" element={<Detail />} /> */}
       <Route path="/home-old" element={<Home />} />
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<HomePage />}>
+        <Route index element={<HotProducts />} />
+        <Route path='/detail-product' element={<DetailProduct />} />
+        <Route path='/product-page' element={<ProductPage />} />
+      </Route>
       {/* <Route path="/history" element={<History />} /> */}
       <Route path="/profile" element={<Profile />} />
       <Route path="/detail-profile" element={<DetailProfile />} />

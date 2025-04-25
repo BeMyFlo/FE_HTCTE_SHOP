@@ -18,6 +18,9 @@ module.exports = {
         brown: '#B2967D',
         backgroundColor: '#f7f7f8d0',
       },
+      spacing: {
+        '110': '110px', // thêm giá trị 30px vào hệ thống spacing
+      }
     },
   },
   plugins: [],
