@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Heart, Share2, ChevronLeft, ChevronRight, List, Grid } from "lucide-react";
 import { CategoryContext } from "../../context/CategoryContext";
 import { getProductByCategory } from "../../api/Product/ProductApi";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { FaExchangeAlt } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { useDispatch } from "react-redux";
@@ -28,6 +28,8 @@ export default function ProductPage() {
     const [selectedProduct, setSelectedProduct] = useState(null)
     const [cart, setCart] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+
 
     const openProductModal = (product) => {
         setSelectedProduct(product)
@@ -222,6 +224,7 @@ export default function ProductPage() {
                                 <div
                                     key={listProductsByCategory.id}
                                     className="relative border rounded-xl p-4 text-center shadow hover:shadow-lg transition"
+                                    onClick={() => navigate('/detail-product', { state: { product: listProductsByCategory } })}
                                 >
                                     {listProductsByCategory.badge && (
                                         <div className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">

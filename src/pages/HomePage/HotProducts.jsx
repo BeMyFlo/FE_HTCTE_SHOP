@@ -272,7 +272,7 @@ export default function HotProducts() {
 
             {/* Product Detail Modal */}
             <ModalCart product={selectedProduct} isOpen={isModalOpen} onClose={closeModal} onAddToCart={handleAddToCart} />
-            <DetailProduct />
+            {/* <DetailProduct /> */}
         </div>
     );
 }

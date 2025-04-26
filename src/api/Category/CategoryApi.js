@@ -1,7 +1,8 @@
-import axios from '../../config/axiosConfig';
+// import axios from '../../config/axiosConfig';
+import { publicClient, privateClient } from '../../config/axiosConfig';
 
 const getAllCategory = () => {
-    return axios.get('/api/category/category')
+    return publicClient.get('/api/category/category')
 }
 
 export {
