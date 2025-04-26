@@ -193,7 +193,6 @@ export default function HotProducts() {
                             <div
                                 key={listHotProducts.id}
                                 className="relative border rounded-xl p-4 text-center shadow hover:shadow-lg transition"
-                                onClick={() => navigate('/detail-product', { state: { product: listHotProducts } })}
                             >
                                 {listHotProducts.badge && (
                                     <div className="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
@@ -204,6 +203,8 @@ export default function HotProducts() {
                                     src={listHotProducts.image}
                                     alt={listHotProducts.name}
                                     className="w-full h-48 object-contain mb-4"
+                                    onClick={() => navigate('/detail-product', { state: { product: listHotProducts } })}
+
                                 />
                                 <div className="text-sm text-gray-700 mb-2">{listHotProducts.name}</div>
                                 <div className="text-red-600 text-lg font-bold mb-4">
@@ -247,6 +248,7 @@ export default function HotProducts() {
                                     src={listFeaturedProducts.image}
                                     alt={listFeaturedProducts.name}
                                     className="w-full h-48 object-contain mb-4"
+                                    onClick={() => navigate('/detail-product', { state: { product: listFeaturedProducts } })}
                                 />
                                 <div className="text-sm text-gray-700 mb-2">{listFeaturedProducts.name}</div>
                                 <div className="text-red-600 text-lg font-bold mb-4">

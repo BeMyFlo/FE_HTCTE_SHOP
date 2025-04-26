@@ -211,7 +211,7 @@ const Header = () => {
                                                 <span className="text-gray-700 text-sm">Total </span>
                                                 <strong className="text-red-500 ml-2">${total.toFixed(2)}</strong>
                                                 <button
-                                                    onClick={() => alert('Đi đến trang checkout')}
+                                                    onClick={() => navigate('/check-out-cart')}
                                                     className="block w-full mt-4 bg-red-500 text-white text-sm py-2 rounded hover:bg-red-600"
                                                 >
                                                     CheckOut
