@@ -1,28 +1,45 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import './App.css';
-import Routes from './routes/index.js';
-import Notification from './components/Notification.js';
-import Navigation from './components/Navigation.js';
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from './components/Header';
 import Footer from './components/Footer';
+import Main from './components/Main';
+import LoginRegisterModal from './components/Popup/LoginRegisterModal'; // ✅ Modal gộp
+import './App.css';
 
-function App() {
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('login'); // 'login' hoặc 'register'
+
+  const openModal = (type) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        {/* Component */}
-        <Navigation />
-        <Notification />
-        {/* Route */}
-        <div className='my-20'>
-          <Routes />
-        </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Header 
+        openLogin={() => openModal('login')} 
+        openRegister={() => openModal('register')} 
+      />
+      <Main />
+      <Footer />
+      <ToastContainer />
+      
+      {/* Chỉ 1 Modal duy nhất */}
+      <LoginRegisterModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        type={modalType}
+        switchType={(newType) => setModalType(newType)} // 👈 Quan trọng
+      />
+    </Router>
   );
-}
+};
 
 export default App;

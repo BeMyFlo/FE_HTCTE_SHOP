@@ -4,9 +4,9 @@ import userEndpoints from './userEndpoints';
 // API liên quan đến người dùng
 const userApi = {
   // API đăng nhập
-  signin: async ({ username, password }) => {
+  signin: async ({ phone, password }) => {
     try {
-      const response = await publicClient.post(userEndpoints.signin, { username, password });
+      const response = await publicClient.post(userEndpoints.signin, { phone, password });
       return response.data;
     } catch (err) {
       throw new Error(err.response?.data?.message || "Login failed");

@@ -1,9 +1,9 @@
 const userEndpoints = {
-    signin: "/api/user/login",
-    signup: "/api/user/register",
+    signin: "/api/auth/login",
+    signup: "/api/auth/register",
     update: "/api/profile/update",
-    // getInfo: "/user/info",
-    // updatePassword: "/user/password/update",
+    getInfo: "/user/info",
+    updatePassword: "/user/password/update",
   };
 
   export default userEndpoints;
