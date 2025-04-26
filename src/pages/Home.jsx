@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
-import slideImage from '../assets/img/slide.jpg';
-import InvestmentPopup from '../components/InvestmentPopup';
+// import slideImage from '../assets/img/slide.jpg';
+// import InvestmentPopup from '../components/InvestmentPopup';
 import { Helmet } from 'react-helmet';
-import barApi from '../api/bar/barApi';
+// import barApi from '../api/bar/barApi';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
 
   const getBarTopRating = async () => {
     try {
-      const response = await barApi.getBarTopRating();
-      return response.data;
+      // const response = await barApi.getBarTopRating();
+      // return response.data;
     } catch (err) {
       throw new Error(err.response?.data?.message || "Failed");
     }
@@ -84,10 +84,10 @@ export default function Home() {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      {showPopup && <InvestmentPopup onClose={() => setShowPopup(false)} />}
+      {/* {showPopup && <InvestmentPopup onClose={() => setShowPopup(false)} />} */}
       <section
         className="relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${slideImage})` }}
+        // style={{ backgroundImage: `url(${slideImage})` }}
       >
         <div
           className="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
@@ -264,21 +264,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto">
+      {/* <div className="my-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto">
         {topRatingBar.map((bar) => (
           <article
             key={bar._id}
             className="overflow-hidden rounded-lg shadow transition hover:shadow-lg"
-          >
-            <Link to={`/detail/${bar._id}`}>
+          > */}
+            {/* <Link to={`/detail/${bar._id}`}>
               <img
                 alt={bar.name}
                 src={bar.imageUrl}
                 className="h-56 md:h-80 w-full object-cover"
               />
-            </Link>
+            </Link> */}
 
-            <div className="bg-white p-4 sm:p-6">
+            {/* <div className="bg-white p-4 sm:p-6">
               <time
                 dateTime={new Date(bar.createdAt).toISOString()}
                 className="block text-xs text-gray-500"
@@ -296,7 +296,7 @@ export default function Home() {
             </div>
           </article>
         ))}
-      </div>
+      </div> */}
       <section>
         <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
